@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX 40;
-typedef struct 
+typedef struct
 {
     int ra;
     char nome[50];
@@ -14,8 +14,8 @@ typedef struct
 
 } Aluno;
 
-
-Aluno cadastrarAluno(){
+Aluno cadastrarAluno()
+{
     Aluno cadastrar;
     printf("Insira o RA: \n");
     scanf("%d", &cadastrar.ra);
@@ -25,7 +25,7 @@ Aluno cadastrarAluno(){
 
     printf("Digite o curso: \n");
     scanf("%s", &cadastrar.curso);
-    
+
     printf("Insira o ano de inicio: \n");
     scanf("%d", &cadastrar.anoInicio);
 
@@ -35,39 +35,44 @@ Aluno cadastrarAluno(){
 }
 
 int main()
-{   int opcao;
+{
+    int opcao;
     int i = 0;
     Aluno alunos[40];
 
-    printf("O que voce deseja fazer?\n [1] - Cadastrar novo aluno \n [2] - Listar todos alunos \n [3] - Buscar aluno pelo RA \n [4] - Exibir aluno com a maior media \n [5] - Exibir a media das medias \n [6] - Excluir aluno pelo RA \n [7] - Sair \n");
-    scanf("%d", &opcao);
+    do
+    {
+        printf("O que voce deseja fazer?\n [1] - Cadastrar novo aluno \n [2] - Listar todos alunos \n [3] - Buscar aluno pelo RA \n [4] - Exibir aluno com a maior media \n [5] - Exibir a media das medias \n [6] - Excluir aluno pelo RA \n [7] - Sair \n");
+        scanf("%d", &opcao);
 
-    switch(opcao) {
+        switch (opcao)
+        {
         case 1:
             alunos[i] = cadastrarAluno();
-            printf("%s", alunos[i].nome);
             i++;
             break;
-        // case 2:
+            // case 2:
 
-        //     buscarAluno();
-        //     break;
-        // case 4:
-        //     exibirMaiorMedia();
-        //     break;
-        // case 5: 
-        //     exibirMediaDasMedias();         
-        //     break;
-        // case 6: 
-        //     excluirAluno();
-        //     break;
-        // case 7:
-        //     sair();
-        //     break;
-        // default: 
-        //     printf("Opcao Invalida!!!");
-        //     break;
-    }
+            //     buscarAluno();
+            //     break;
+            // case 4:
+            //     exibirMaiorMedia();
+            //     break;
+            // case 5:
+            //     exibirMediaDasMedias();
+            //     break;
+            // case 6:
+            //     excluirAluno();
+            //     break;
+            // case 7:
+            //     sair();
+            //     break;
+            // default:
+            //     printf("Opcao Invalida!!!");
+            //     break;
+        }
+        system("cls");
+    } while(opcao != 7);
 
     return 0;
 }
