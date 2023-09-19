@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX 40;
@@ -16,22 +16,26 @@ typedef struct
 
 Aluno cadastrarAluno()
 {
-    Aluno cadastrar;
+    Aluno cadastro;
     printf("Insira o RA: \n");
-    scanf("%d", &cadastrar.ra);
+    scanf("%d", &cadastro.ra);
+
+    getchar();
 
     printf("Digite o nome: \n");
-    scanf("%s", &cadastrar.nome);
+    fgets(cadastro.nome, sizeof(cadastro.nome), stdin);
+
 
     printf("Digite o curso: \n");
-    scanf("%s", &cadastrar.curso);
+    fgets(cadastro.curso, sizeof(cadastro.curso), stdin);
 
     printf("Insira o ano de inicio: \n");
-    scanf("%d", &cadastrar.anoInicio);
+    scanf("%d", &cadastro.anoInicio);
 
     printf("Insira da idade: \n");
-    scanf("%d", &cadastrar.idade);
-    return cadastrar;
+    scanf("%d", &cadastro.idade);
+
+    return cadastro;
 }
 
 int main()
@@ -71,7 +75,6 @@ int main()
             //     printf("Opcao Invalida!!!");
             //     break;
         }
-        system("cls");
     } while(opcao != 7);
 
     return 0;
