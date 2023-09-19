@@ -16,7 +16,9 @@ typedef struct
 
 Aluno cadastrarAluno()
 {
+    int i;
     Aluno cadastro;
+
     printf("Insira o RA: \n");
     scanf("%d", &cadastro.ra);
 
@@ -25,17 +27,36 @@ Aluno cadastrarAluno()
     printf("Digite o nome: \n");
     fgets(cadastro.nome, sizeof(cadastro.nome), stdin);
 
-
     printf("Digite o curso: \n");
     fgets(cadastro.curso, sizeof(cadastro.curso), stdin);
+
+    for(i = 0; i < 4; i++) {
+        printf("Digite a nota %d:\n", i + 1);
+        scanf("%f", &cadastro.notas[i]);
+    }
 
     printf("Insira o ano de inicio: \n");
     scanf("%d", &cadastro.anoInicio);
 
     printf("Insira da idade: \n");
     scanf("%d", &cadastro.idade);
-
+   
     return cadastro;
+}
+
+char *buscarAluno(int ra, Aluno alunos[], int tamanhoVetor){
+    int i;
+
+    for(i = 0; i < tamanhoVetor; i++) {
+        if(alunos[i].ra == ra) {
+            return alunos[i].nome;
+        } 
+
+            return "Aluno não encontrado";
+    }
+
+    
+
 }
 
 int main()
@@ -43,6 +64,7 @@ int main()
     int opcao;
     int i = 0;
     Aluno alunos[40];
+    int pesquisaAluno;
 
     do
     {
@@ -55,10 +77,15 @@ int main()
             alunos[i] = cadastrarAluno();
             i++;
             break;
-            // case 2:
-
-            //     buscarAluno();
-            //     break;
+            case 2:
+                int tamanhoVetor = 10;
+                printf("Digite o RA do aluno: \n");
+                scanf("%d", &pesquisaAluno);
+                
+                char *resultado = buscarAluno(pesquisaAluno, alunos, tamanhoVetor);
+                printf("%s\n", resultado);
+                
+                break;
             // case 4:
             //     exibirMaiorMedia();
             //     break;
@@ -71,9 +98,9 @@ int main()
             // case 7:
             //     sair();
             //     break;
-            // default:
-            //     printf("Opcao Invalida!!!");
-            //     break;
+            default:
+                printf("Opcao Invalida!!!\n");
+                break;
         }
     } while(opcao != 7);
 
