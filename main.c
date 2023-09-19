@@ -44,6 +44,18 @@ Aluno cadastrarAluno()
     return cadastro;
 }
 
+void listarAlunos(Aluno alunos[], int tamanhoVetor) {
+    int i;
+
+    for(i = 0; i < tamanhoVetor; i++ ) {
+        printf("%d\n", alunos[i].ra);
+        printf("%s\n", alunos[i].nome);
+        printf("%s\n", alunos[i].curso);
+        printf("%d\n", alunos[i].anoInicio);
+        printf("%d\n", alunos[i].idade);
+    }
+}
+
 char *buscarAluno(int ra, Aluno alunos[], int tamanhoVetor){
     int i;
 
@@ -65,6 +77,7 @@ int main()
     int i = 0;
     Aluno alunos[40];
     int pesquisaAluno;
+    int tamanhoVetor = 2;
 
     do
     {
@@ -73,12 +86,16 @@ int main()
 
         switch (opcao)
         {
-        case 1:
-            alunos[i] = cadastrarAluno();
-            i++;
-            break;
+            case 1:
+                alunos[i] = cadastrarAluno();
+                i++;
+                break;
+
             case 2:
-                int tamanhoVetor = 10;
+                listarAlunos(alunos, tamanhoVetor);
+                break;
+
+            case 3:
                 printf("Digite o RA do aluno: \n");
                 scanf("%d", &pesquisaAluno);
                 
