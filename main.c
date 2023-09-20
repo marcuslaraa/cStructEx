@@ -71,6 +71,10 @@ char *buscarAluno(int ra, Aluno alunos[], int tamanhoVetor){
 
 }
 
+float exibirMaiorMedia(Aluno alunos[], int tamanho) {
+    int i, j;
+  
+}
 int main()
 {
     int opcao;
@@ -103,18 +107,17 @@ int main()
                 printf("%s\n", resultado);
                 
                 break;
-            // case 4:
-            //     exibirMaiorMedia();
-            //     break;
+            case 4:
+                exibirMaiorMedia(alunos, 4);
+                break;
             // case 5:
             //     exibirMediaDasMedias();
             //     break;
             // case 6:
             //     excluirAluno();
             //     break;
-            // case 7:
-            //     sair();
-            //     break;
+            case 7:
+                break;
             default:
                 printf("Opcao Invalida!!!\n");
                 break;
