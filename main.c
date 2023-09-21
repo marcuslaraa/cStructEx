@@ -49,8 +49,8 @@ void listarAlunos(Aluno alunos[], int tamanhoVetor) {
 
     for(i = 0; i < tamanhoVetor; i++ ) {
         printf("%d\n", alunos[i].ra);
-        printf("%s\n", alunos[i].nome);
-        printf("%s\n", alunos[i].curso);
+        printf("%s", alunos[i].nome);
+        printf("%s", alunos[i].curso);
         printf("%d\n", alunos[i].anoInicio);
         printf("%d\n", alunos[i].idade);
     }
@@ -81,7 +81,7 @@ int main()
     int i = 0;
     Aluno alunos[40];
     int pesquisaAluno;
-    int tamanhoVetor = 2;
+    int tamanhoVetor = 1;
 
     do
     {
